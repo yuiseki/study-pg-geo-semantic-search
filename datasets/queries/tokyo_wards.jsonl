@@ -1,3 +1,7 @@
 {"id": "q1", "query": "台東区の床屋", "region": "台東区", "lat": 35.7126, "lon": 139.7798, "radius": 3000}
 {"id": "q2", "query": "渋谷のカフェ", "region": "渋谷区", "lat": 35.6618, "lon": 139.7041, "radius": 3000}
 {"id": "q3", "query": "新宿の病院", "region": "新宿区", "lat": 35.6938, "lon": 139.7034, "radius": 4000}
+{"id": "q_biyouin_001", "query": "美容院", "region": "台東区", "lat": 35.7126, "lon": 139.7798, "radius": 3000}
+{"id": "q_restaurant_001", "query": "レストラン", "region": "台東区", "lat": 35.7126, "lon": 139.7798, "radius": 3000}
+{"id": "q_famires_001", "query": "ファミレス", "region": "台東区", "lat": 35.7126, "lon": 139.7798, "radius": 3000}
+{"id": "q_convenience_en_001", "query": "convenience store", "region": "台東区", "lat": 35.7126, "lon": 139.7798, "radius": 3000}

@@ -7,6 +7,10 @@ focused:
     match:
       - key: amenity
         values: [cafe]
+  - category: restaurant
+    match:
+      - key: amenity
+        values: [restaurant, fast_food, food_court]
   - category: convenience
     match:
       - key: shop

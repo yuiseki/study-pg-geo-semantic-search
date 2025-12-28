@@ -111,6 +111,8 @@ def search(conn: psycopg.Connection, query: str, region: str, lat: float, lon: f
       FROM search.places p
       WHERE p.place_id IN (SELECT place_id FROM geo)
         AND p.text_for_search &@~ %(q)s
+        AND p.name IS NOT NULL
+        AND p.name <> ''
       ORDER BY pgroonga_score(p.tableoid, p.ctid) DESC
       LIMIT %(text_k)s
     ),
@@ -118,8 +120,11 @@ def search(conn: psycopg.Connection, query: str, region: str, lat: float, lon: f
       SELECT e.place_id,
              row_number() OVER (ORDER BY e.embedding <=> %(qvec)s) AS r_vec
       FROM search.place_embeddings e
+      JOIN search.places p ON p.place_id = e.place_id
       WHERE e.model = %(model)s
         AND e.place_id IN (SELECT place_id FROM geo)
+        AND p.name IS NOT NULL
+        AND p.name <> ''
       ORDER BY e.embedding <=> %(qvec)s
       LIMIT %(vec_k)s
     ),

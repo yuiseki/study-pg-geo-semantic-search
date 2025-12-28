@@ -115,6 +115,8 @@ def main() -> None:
       FROM search.places p
       WHERE p.place_id IN (SELECT place_id FROM geo)
         AND p.text_for_search &@~ %(q)s
+        AND p.name IS NOT NULL
+        AND p.name <> ''
       ORDER BY pgroonga_score(p.tableoid, p.ctid) DESC
       LIMIT %(text_k)s
     ),
@@ -123,8 +125,11 @@ def main() -> None:
              row_number() OVER (ORDER BY e.embedding <=> %(qvec)s) AS r_vec,
              1 - (e.embedding <=> %(qvec)s) AS s_vec
       FROM search.place_embeddings e
+      JOIN search.places p ON p.place_id = e.place_id
       WHERE e.model = %(model)s
         AND e.place_id IN (SELECT place_id FROM geo)
+        AND p.name IS NOT NULL
+        AND p.name <> ''
       ORDER BY e.embedding <=> %(qvec)s
       LIMIT %(vec_k)s
     ),
