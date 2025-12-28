@@ -1,0 +1,2 @@
+-- Example: EXPLAIN (ANALYZE, BUFFERS) <query>;
+-- Replace parameters as needed for profiling.

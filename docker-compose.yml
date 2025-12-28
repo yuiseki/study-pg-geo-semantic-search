@@ -1,0 +1,26 @@
+services:
+  db:
+    build:
+      context: .
+      dockerfile: infra/postgres/Dockerfile
+    ports:
+      - "5435:5432"
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-geo_search}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+    volumes:
+      - ./db/init:/docker-entrypoint-initdb.d
+      - ./db/data:/var/lib/postgresql/data
+
+  osm2pgsql:
+    build:
+      context: .
+      dockerfile: infra/osm2pgsql/Dockerfile
+    depends_on:
+      - db
+    volumes:
+      - ./osm:/data
+      - ./infra/osm2pgsql/flex:/flex
+    entrypoint: ["/bin/sh", "-c"]
+    command: ["sleep infinity"]

@@ -1,0 +1,45 @@
+focused:
+  - category: barber
+    match:
+      - key: shop
+        values: [hairdresser, barber]
+  - category: cafe
+    match:
+      - key: amenity
+        values: [cafe]
+  - category: convenience
+    match:
+      - key: shop
+        values: [convenience]
+  - category: hospital
+    match:
+      - key: amenity
+        values: [hospital, clinic]
+  - category: school
+    match:
+      - key: amenity
+        values: [school, university]
+
+broad:
+  - category: food
+    match:
+      - key: amenity
+        values: [restaurant, cafe, fast_food, bar, pub]
+  - category: retail
+    match:
+      - key: shop
+        values: [supermarket, convenience, bakery, clothes, hairdresser, barber]
+  - category: transport
+    match:
+      - key: railway
+        values: [station, subway_entrance]
+      - key: highway
+        values: [bus_stop]
+  - category: leisure
+    match:
+      - key: leisure
+        values: [park, playground, sports_centre]
+  - category: public
+    match:
+      - key: amenity
+        values: [hospital, clinic, police, fire_station, school, university, post_office]

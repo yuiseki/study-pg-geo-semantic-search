@@ -1,0 +1,39 @@
+scenarios:
+  S0_geo_only:
+    description: geo only
+    weights: { text: 0.0, vector: 0.0, geo: 1.0 }
+    candidates:
+      geo_k: 50
+  S1_geo_text:
+    description: geo + text
+    weights: { text: 1.0, vector: 0.0, geo: 0.2 }
+    candidates:
+      geo_k: 200
+      text_k: 50
+  S2_geo_vector:
+    description: geo + vector
+    weights: { text: 0.0, vector: 1.0, geo: 0.2 }
+    candidates:
+      geo_k: 200
+      vec_k: 50
+  S3_geo_text_vector:
+    description: geo + text + vector
+    weights: { text: 0.7, vector: 1.0, geo: 0.2 }
+    candidates:
+      geo_k: 200
+      text_k: 50
+      vec_k: 50
+  S4_geo_text_vector_rerank:
+    description: S3 + distance mix
+    weights: { text: 0.7, vector: 1.0, geo: 0.4 }
+    candidates:
+      geo_k: 200
+      text_k: 50
+      vec_k: 50
+  S5_knn_candidates:
+    description: KNN candidates + text+vector + rerank
+    weights: { text: 0.7, vector: 1.0, geo: 0.4 }
+    candidates:
+      knn_k: 200
+      text_k: 50
+      vec_k: 50

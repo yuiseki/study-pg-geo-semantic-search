@@ -1,0 +1,24 @@
+# env
+.env
+.venv/
+__pycache__/
+*.pyc
+
+# data
+osm/*.osm.pbf
+osm/*.osm.pbf.md5
+osm/*.osm.pbf.torrent
+
+# db
+/db/data/
+
+# eval outputs
+/evaluations/results/
+
+# local artifacts
+*.log
+*.tmp
+
+# IDE
+.vscode/
+.idea/
