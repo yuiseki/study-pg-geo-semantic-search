@@ -1,4 +1,4 @@
-FROM pgvector/pgvector:0.8.1-pg17-trixie
+FROM pgvector/pgvector:0.8.6-pg17-trixie
 
 RUN set -eux; \
   apt-get update; \
